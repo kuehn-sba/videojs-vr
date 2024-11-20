@@ -70,7 +70,9 @@
     "index.html",
     "scripts/",
     "src/",
-    "test/"
+    "test/",
+    "lang/",
+    "vendor/three"
   ],
   "greenkeeper": {
     "ignore": [
