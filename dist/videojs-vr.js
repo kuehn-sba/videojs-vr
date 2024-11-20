@@ -1,9 +1,14 @@
 /*! @name videojs-vr @version 2.0.0 @license MIT */
+
+// @fix: remove direct video.js references RIO
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('video.js')) :
-  typeof define === 'function' && define.amd ? define(['video.js'], factory) :
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define([], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.videojsVr = factory(global.videojs));
 }(this, (function (videojs) { 'use strict';
+
+  // @fix: manual linking to videojs (take a look at videojs-time-offset initialization, which works the same way) RIO
+  videojs = (typeof window !== "undefined" ? window['videojs'] : typeof global !== "undefined" ? global['videojs'] : null);
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
