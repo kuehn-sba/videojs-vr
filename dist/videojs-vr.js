@@ -33762,7 +33762,7 @@
      */
     constructor(audioContext, omnitone, video, options) {
       super();
-      const settings = videojs__default['default'].mergeOptions({
+      const settings = videojs__default['default'].obj.merge({ // @fix: videojs 8.0 warn RIO
         // Safari uses the different AAC decoder than FFMPEG. The channel order is
         // The default 4ch AAC channel layout for FFMPEG AAC channel ordering.
         channelMap: videojs__default['default'].browser.IS_SAFARI ? [2, 0, 1, 3] : [0, 1, 2, 3],
@@ -33948,7 +33948,7 @@
   const Component = videojs__default['default'].getComponent('Component');
   class VR extends Plugin {
     constructor(player, options) {
-      const settings = videojs__default['default'].mergeOptions(defaults, options);
+      const settings = videojs__default['default'].obj.merge(defaults, options);  // @fix: videojs 8.0 warn RIO
       super(player, settings);
       this.options_ = settings;
       this.player_ = player;
